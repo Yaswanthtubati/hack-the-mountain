@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Responsive Navbar | CodingNepal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      *{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: montserrat;
+}
+
+.bg {
+  background-image: url("https://wallpaper.dog/large/854206.jpg");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+nav{
+    height: 80px;
+    width: 100%;
+
+}
+label.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+  nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+  }
+  nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+  a.active,a:hover{
+    color : black;
+    background:  white;
+    transition: .5s;
+  }
+  .checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+  }
+  #check{
+    display: none;
+  }
+  @media (max-width: 952px){
+    label.logo{
+      font-size: 30px;
+      padding-left: 50px;
+    }
+    nav ul li a{
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 858px){
+    .checkbtn{
+      display: block;
+    }
+    ul{
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background: #2c3e50;
+      top: 80px;
+      left: -100%;
+      text-align: center;
+      transition: all .5s;
+    }
+    nav ul li{
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
+    }
+    nav ul li a{
+      font-size: 20px;
+    }
+    a:hover,a.active{
+      background: none;
+      color:   white;
+    }
+    #check:checked ~ ul{
+      left: 0;
+    }
+  }
+  section{
+    background-size: cover;
+    height: calc(10vh - 40px);
+  }
+
+  .dropdown {
+    margin-top: 16.5px;
+    float:left;
+    overflow: hidden;
+}
+  
+.dropdown .dropbtn {
+  margin-top: 20px;
+    cursor: pointer;
+    font-size: 15px;  
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+  
+.navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
+
+    background-color:  white;
+    color : black;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+  
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+}
+  
+.show {
+    display: block;
+}
+#footer{
+    padding: 15px;
+    margin: 5px;
+    margin-left : 90px;
+}
+.content_img{
+    margin-top: 15px;
+    padding: 5px;
+    position: relative;
+    width: 300px;
+    height: 260px;
+    float: left;
+    margin-right: 100px;
+    border: 3px solid white;
+    border-radius: 10px;
+}
+.content_img div{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: black;
+    color: white;
+    margin-bottom: 5px;
+    font-family: sans-serif;
+    opacity: 0;
+    border-radius: 10px;
+    visibility: hidden;
+    -webkit-transition: visibility 0s, opacity 0.5s linear; 
+    transition: visibility 0s, opacity 0.5s linear;
+}
+   
+.content_img:hover{
+    cursor: pointer;
+}
+   
+.content_img:hover div{
+    width: 150px;
+    padding: 8px 15px;
+    visibility: visible;
+    opacity: 0.7; 
+}
+    </style>
+  </head>
+  <body>
+    <div class="bg">
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo">Hospitals in west godavari</label>
+      <ul>
+        <li><a class="active" href="/Homep">Home</a></li>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="myFunction()">WEST GODAVARI
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content" id="myDropdown">
+              <a href="/Ananthapur">Ananthapur</a>
+              <a href="/Chittoor">Chittoor</a>
+              <a href="/EastGodhavari">East Godavari</a>
+              <a href="/Guntur">Guntur</a>
+              <a href="/Krishna">Krishna</a>
+              <a href="/Kadapa">Kadapa</a>
+              <a href="/Kurnool">Kurnool</a>
+              <a href="/Nellore">Nellore</a>
+              <a href="/Prakasam">Prakasam</a>
+              <a href="/Srikakulam">Srikakulam</a>
+              <a href="/Vijayanagaram">Vizianagaram</a>
+              <a href="/Visakhapatnam">Visakhapatnam</a>
+              <a href="#">West Godavari</a>
+            </div>
+            </div>
+            <li><a href="/signout">Logout</a></li>
+          </ul>
+          <div id="footer">
+            <div class="content_img">
+                <img src='https://content.jdmagicbox.com/comp/west_godavari/w7/9999p8812.8812.190128202553.d9w7/catalogue/vani-homeocare-palakollu-west-godavari-hospitals-iq4ucbrd92.jpg?clr=#263340?fit=around%7C270%3A130&crop=270%3A130%3B%2A%2C%2A' width='100%' height='100%'>
+                <div>Vani Medical care</div>
+            </div>
+            <div class="content_img">
+                <img src='https://content.jdmagicbox.com/comp/west_godavari/r8/9999p8812.8812.180202141155.u6r8/catalogue/royal-hospital-west-godavari-west-godavari-hospitals-1cxcjegfrf.jpg?fit=around%7C270%3A130&crop=270%3A130%3B%2A%2C%2A' width='100%' height='100%'>
+                <div>Royal Hospital</div>
+            </div>
+            <div class="content_img">
+                <img src='https://content.jdmagicbox.com/comp/west_godavari/w1/9999p8812.8812.170711120722.v1w1/catalogue/virrd-hospital-dwaraka-tirumala-west-godavari-hospitals-38v6uq7lp4.jpg?clr=#4a1c4a?fit=around%7C270%3A130&crop=270%3A130%3B%2A%2C%2A' width='100%' height='100%'>
+                <div>Virrd Hospital</div> 
+            </div>
+            <div class="content_img">
+              <img src='https://content.jdmagicbox.com/comp/west_godavari/k9/9999p8812.8812.181012124323.g3k9/catalogue/seshagiri-hospital-nidadavolu-west-godavari-knee-replacement-surgeon-doctors-1crguvort4.jpg?fit=around%7C270%3A130&crop=270%3A130%3B%2A%2C%2A' width='100%' height='100%'>
+              <div>Seshagiri Hospital</div>
+          </div>
+          <div class="content_img">
+              <img src='https://content.jdmagicbox.com/comp/west_godavari/c4/9999p8814.8814.110225123123.m9c4/catalogue/krishna-bhavani-hospital-palakollu-west-godavari-hospitals-urefvgbxts.jpg?fit=around%7C270%3A130&crop=270%3A130%3B%2A%2C%2A' width='100%' height='100%'>
+              <div>Krishna Bhavani Hospital</div> 
+          </div>
+          <div class="content_img">
+            <img src='https://content.jdmagicbox.com/comp/def_content/general_physician_doctors/default-general-physician-doctors-5.jpg?fit=around%7C270%3A130&crop=270%3A130%3B%2A%2C%2A' width='100%' height='100%'>
+            <div>Akshara Speciality Hospital</div> 
+        </div>
+        </div>
+         <section></section>
+      </div>
+   </div>
+          <script>
+          function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+          }
+          window.onclick = function(e) {
+            if (!e.target.matches('.dropbtn')) {
+            var myDropdown = document.getElementById("myDropdown");
+              if (myDropdown.classList.contains('show')) {
+                myDropdown.classList.remove('show');
+              }
+            }
+          }
+          </script>
+    </nav>
+    <h1></h1>
+  </body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-image: linear-gradient(to right top, #cda7ca, #d590cd, #dd75cd, #e654cc, #ee15c8);
+}
+.container{
+  max-width: 1200px;
+  width: 100%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 30px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+.container .title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+.container .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+.content form .user-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+form .user-details .input-box{
+  margin-bottom: 15px;
+  width: calc(100% / 5- 20px);
+}
+form .input-box span.details{
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+input::placeholder {
+  font-size : 12px;
+}
+.user-details .input-box input{
+  height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+  border-color: #9b59b6;
+}
+ form .gender-details .gender-title{
+  font-size: 20px;
+  font-weight: 500;
+ }
+ form .category{
+   display: flex;
+   width: 80%;
+   margin: 14px 0 ;
+   justify-content: space-between;
+ }
+ form .category label{
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+ }
+ form .category label .dot{
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: #d9d9d9;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+ #dot-1:checked ~ .category label .one,
+ #dot-2:checked ~ .category label .two,
+ #dot-3:checked ~ .category label .three{
+   background: #9b59b6;
+   border-color: #d9d9d9;
+ }
+ form input[type="radio"]{
+   display: none;
+ }
+ form .button{
+   height: 45px;
+   margin: 35px 0
+ }
+ form .button input{
+   height: 100%;
+   width: 100%;
+   border-radius: 5px;
+   border: none;
+   color: #fff;
+   font-size: 18px;
+   font-weight: 500;
+   letter-spacing: 1px;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   background: rgb(38, 107, 226);
+ }
+ form .button input:hover{
+  /* transform: scale(0.99); */
+  background:blueviolet;
+  }
+ @media(max-width: 584px){
+ .container{
+  max-width: 100%;
+}
+.hed{
+  text-align: left;
+}
+form .user-details .input-box{
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  form .category{
+    width: 100%;
+  }
+  .content form .user-details{
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  .user-details::-webkit-scrollbar{
+    width: 5px;
+  }
+  }
+  @media(max-width: 459px){
+  .container .content .category{
+    flex-direction: column;
+  }
+}
+
+
+
+
+.bar{
+  float: left;
+  margin-top: 0px;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Breast Cancer Predictor </div>
+        <div class="content">
+          <form action="cp1" method = "post">
+            {% csrf_token %}
+            <div class="user-details">
+              <div class="input-box">
+                <span class="details">Radius mean</span>
+                <input type="num" placeholder="Enter the radius men"  name="n0"required>
+              </div>
+           
+              <div class="input-box">
+                <span class="details">Texture mean</span>
+                <input type="num" placeholder= "Enter texture mean"  name="n1"required>
+              </div>
+              <div class="input-box">
+                <span class="details">Perimeter mean</span>
+                <input type="num" placeholder="Enter perimeter mean " name="n2" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Area mean</span>
+                <input type="num" placeholder="Enter area mean"  name="n3"required>
+              </div>
+              <div class="input-box">
+                <span class="details">Smoothness mean</span>
+                <input type="num" placeholder="Enter smoothness mean"  name="n4"required>
+              </div>
+         
+              <div class="input-box">
+                <span class="details">Compacctness mean</span>
+                <input type="num" placeholder="Enter compactness mean "  name="n5"required>
+              </div>
+                <div class="input-box">
+                <span class="details">Concavitymean</span>
+                <input type="num" placeholder="Enter concavity mean "  name="n6"required>
+              </div>
+                   <div class="input-box">
+                <span class="details">Concave points mean</span>
+                <input type="num" placeholder="Enter concave points mean "  name="n7"required>
+              </div>
+              <div class="input-box">
+                <span class="details">Symetry mean</span>
+                <input type="num" placeholder="Enter symetry mean"  name="n8"required>
+              </div>
+              <div class="input-box">
+                <span class="details">Fractal dimension mean</span>
+                <input type="num" placeholder="Enter fractal dimension mean "  name="n9"required>
+              </div>
+              <div class="input-box">
+                <span class="details">Radius se</span>
+                <input type="num" placeholder="Enter radius se "  name="n10"required>
+              </div>
+              <div class="input-box">
+                <span class="details">Texture se</span>
+                <input type="num" placeholder="Enter texture se "  name="n11"required>
+              </div>
+              <div class="input-box">
+                <span class="details">Perimeter se</span>
+                <input type="num" placeholder="Enter perimeter se "  name="n12"required>
+              </div>
+              <div class="input-box">
+                <span class="details">Area se</span>
+                <input type="num" placeholder="Enter area se "  name="n13"required>
+              </div>
+              <div class="input-box">
+                <span class="details">Smoothness se</span>
+                <input type="num" placeholder="Enter smoothness se"  name="n14"required>
+              </div>
+              <div class="input-box">
+                <span class="details">compactness se</span>
+                <input type="num" placeholder="Enter cmpactness se"  name="n15"required>
+              </div>
+              <div class="input-box">
+                <span class="details">Concavity se</span>
+                <input type="num" placeholder="Enter concavity se"  name="n16"required>
+              </div>
+              <div class="input-box">
+                <span class="details">Concave points se</span>
+                <input type="num" placeholder="Enter conacve points se "  name="n17"required>
+              </div>
+              <div class="input-box">
+                <span class="details">symmetry se</span>
+                <input type="num" placeholder="Enter symmetry se"  name="n18"required>
+              </div>
+              <div class="input-box">
+                <span class="details">fractal dimension se</span>
+                <input type="num" placeholder="Enter fractal dimension se "  name="n19"required>
+              </div>
+              <div class="input-box">
+                <span class="details">Radius worst</span>
+                <input type="num" placeholder="Enter radius worst"  name="n20"required>
+              </div>
+              <div class="input-box">
+                <span class="details">Texture worst</span>
+                <input type="num" placeholder="Enter Texture worst"  name="n21"required>
+              </div>
+              <div class="input-box">
+                <span class="details">Perimeter worst</span>
+                <input type="num" placeholder="Enter perimeter worst"  name="n22"required>
+              </div>
+              <div class="input-box">
+                <span class="details">Area worst</span>
+                <input type="num" placeholder="Enter area worst"  name="n23"required>
+              </div>
+              <div class="input-box">
+                <span class="details">Smoothness worst</span>
+                <input type="num" placeholder="Enter smoothness worst"  name="n24"required>
+              </div>
+              <div class="input-box">
+                <span class="details">compactness worst</span>
+                <input type="num" placeholder="Enter compactness worst"  name="n25"required>
+              </div>
+              <div class="input-box">
+                <span class="details">Concavity worst</span>
+                <input type="num" placeholder="Enter concavity worst "  name="n26"required>
+              </div>
+              <div class="input-box">
+                <span class="details">Concave points worst</span>
+                <input type="num" placeholder="Enter concave points worst "  name="n27"required>
+              </div>
+              <div class="input-box">
+                <span class="details">Symmetry worst</span>
+                <input type="num" placeholder="Enter symmetry worst "  name="n28"required>
+              </div>
+              <div class="input-box">
+                <span class="details">Fractal dimension worst</span>
+                <input type="num" placeholder="Enter fractal dimension worst "  name="n29"required>
+              </div>
+       </div>
+            <div class="button">
+              <input type="submit" value="Predict"><br>
+              Go to Home page    
+              <a href="/Homep">Home Page</a>
+            </div>
+          </form>
+          Result:{{output}}
+        </div>
+      </div>  
+</body>
+</html>

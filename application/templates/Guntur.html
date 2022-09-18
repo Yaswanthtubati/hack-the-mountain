@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Responsive Navbar | CodingNepal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      *{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: montserrat;
+}
+
+.bg {
+  background-image: url("https://wallpaper.dog/large/854206.jpg");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+nav{
+    height: 80px;
+    width: 100%;
+
+}
+label.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+  nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+  }
+  nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+  a.active,a:hover{
+    color : black;
+    background:  white;
+    transition: .5s;
+  }
+  .checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+  }
+  #check{
+    display: none;
+  }
+  @media (max-width: 952px){
+    label.logo{
+      font-size: 30px;
+      padding-left: 50px;
+    }
+    nav ul li a{
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 858px){
+    .checkbtn{
+      display: block;
+    }
+    ul{
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background: #2c3e50;
+      top: 80px;
+      left: -100%;
+      text-align: center;
+      transition: all .5s;
+    }
+    nav ul li{
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
+    }
+    nav ul li a{
+      font-size: 20px;
+    }
+    a:hover,a.active{
+      background: none;
+      color:   white;
+    }
+    #check:checked ~ ul{
+      left: 0;
+    }
+  }
+  section{
+    background-size: cover;
+    height: calc(10vh - 40px);
+  }
+
+  .dropdown {
+    margin-top: 16.5px;
+    float:left;
+    overflow: hidden;
+}
+  
+.dropdown .dropbtn {
+  margin-top: 20px;
+    cursor: pointer;
+    font-size: 15px;  
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+  
+.navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
+
+    background-color:  white;
+    color : black;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+  
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+}
+  
+.show {
+    display: block;
+}
+#footer{
+    padding: 15px;
+    margin: 5px;
+    margin-left : 90px;
+}
+.content_img{
+    margin-top: 15px;
+    padding: 5px;
+    position: relative;
+    width: 300px;
+    height: 260px;
+    float: left;
+    margin-right: 100px;
+    border: 3px solid white;
+    border-radius: 10px;
+}
+.content_img div{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: black;
+    color: white;
+    margin-bottom: 5px;
+    font-family: sans-serif;
+    opacity: 0;
+    border-radius: 10px;
+    visibility: hidden;
+    -webkit-transition: visibility 0s, opacity 0.5s linear; 
+    transition: visibility 0s, opacity 0.5s linear;
+}
+   
+.content_img:hover{
+    cursor: pointer;
+}
+   
+.content_img:hover div{
+    width: 150px;
+    padding: 8px 15px;
+    visibility: visible;
+    opacity: 0.7; 
+}
+    </style>
+  </head>
+  <body>
+    <div class="bg">
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo">Hospitals in Guntur</label>
+      <ul>
+        <li><a class="active" href="/Homep">Home</a></li>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="myFunction()">GUNTUR
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content" id="myDropdown">
+              <a href="/Ananthapur">Ananthapur</a>
+              <a href="/Chittoor">Chittoor</a>
+              <a href="/EastGodhavari">East Godavari</a>
+              <a href="#">Guntur</a>
+              <a href="/Krishna">Krishna</a>
+              <a href="/Kadapa">Kadapa</a>
+              <a href="/Kurnool">Kurnool</a>
+              <a href="/Nellore">Nellore</a>
+              <a href="/Prakasam">Prakasam</a>
+              <a href="/Srikakulam">Srikakulam</a>
+              <a href="/Vijayanagaram">Vizianagaram</a>
+              <a href="/Visakhapatnam">Visakhapatnam</a>
+              <a href="/WestGodhavari">West Godavari</a>
+            </div>
+            </div>
+            <li><a href="/signout">Logout</a></li>
+          </ul>
+          <div id="footer">
+            <div class="content_img">
+                <img src='https://www.asterhospitals.in/sites/default/files/2021-03/Ongole.jpg' width='100%' height='100%'>
+                <div>Multi Speciality Hospital</div>
+            </div>
+            <div class="content_img">
+                <img src='https://content.jdmagicbox.com/comp/guntur/r8/9999px863.x863.111202135624.g2r8/catalogue/coastal-care-hospital-kotha-peta-guntur-hospitals-tn86l.jpg' width='100%' height='100%'>
+                <div>Coastal Care Hospitals</div>
+            </div>
+            <div class="content_img">
+                <img src='https://content3.jdmagicbox.com/comp/narasaraopet/l8/9999p8647.8647.180721180858.x6l8/catalogue/life-line-hospital-narasaraopet-narasaraopet-hospitals-1zhqu6ac9m.jpg' width='100%' height='100%'>
+                <div>Life Line Hospitals</div> 
+            </div>
+            <div class="content_img">
+              <img src='https://content.jdmagicbox.com/comp/guntur/y6/9999px863.x863.220824141623.j6y6/catalogue/sree-sankalpa-multispeciality-hospital-kotha-peta-guntur-hospitals-isq6heayjy.jpg?clr=#492c1d?fit=around%7C270%3A130&crop=270%3A130%3B%2A%2C%2A' width='100%' height='100%'>
+              <div>Sree Sankalpa Multispeciality Hospital</div>
+          </div>
+          <div class="content_img">
+              <img src='https://content.jdmagicbox.com/comp/guntur/a2/9999px863.x863.140201150203.c4a2/catalogue/dr-sajja-chandramouli-hospital-ponnur-guntur-hospitals-eyda0wawwd.jpg?clr=#492c1d?fit=around%7C270%3A130&crop=270%3A130%3B%2A%2C%2A' width='100%' height='100%'>
+              <div>Dr Sajja Chandramouli Hospital</div> 
+          </div>
+          <div class="content_img">
+            <img src='https://content.jdmagicbox.com/comp/guntur/t9/9999px863.x863.220512162754.p5t9/catalogue/manipal-superspeciality-tadepalle-guntur-hospitals-1r6w1stzym.jpg?clr=#522914?fit=around%7C270%3A130&crop=270%3A130%3B%2A%2C%2A' width='100%' height='100%'>
+            <div>Manipal Superspeciality Hospital</div> 
+        </div>
+        </div>
+         <section></section>
+      </div>
+   </div>
+          <script>
+          function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+          }
+          window.onclick = function(e) {
+            if (!e.target.matches('.dropbtn')) {
+            var myDropdown = document.getElementById("myDropdown");
+              if (myDropdown.classList.contains('show')) {
+                myDropdown.classList.remove('show');
+              }
+            }
+          }
+          </script>
+    </nav>
+    <h1></h1>
+  </body>
+</html>
